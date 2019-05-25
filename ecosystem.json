@@ -1,0 +1,31 @@
+{
+    "apps": [
+        {
+            "name": "server",
+            "script": "./start.js",
+            "watch": false,
+            "env": {
+            "COMMON_VARIABLE": true,
+            "NODE_ENV": "development"
+            },
+            "env_production": {
+            "NODE_ENV": "production"
+            }
+        }
+    ],
+    "deploy": {
+        "production": {
+            "user": "projectalpha",
+            "host": ["ssh.sinacloud.com"],
+            "port": "60022",
+            "ref": "origin/master",
+            "repo": "https://github.com/hw-in-github/blog.git",
+            "path": "/www/project-alpha/production",
+            "post-deploy":"npm install -f && hexo clean && hexo g && pm2 startOrRestart ecosystem.json --env production",
+            "ssh_options": "StrictHostKeyChecking=no",
+            "env": {
+                "NODE_ENV": "production"
+            }
+        }
+    }
+  }
