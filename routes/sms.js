@@ -33,7 +33,7 @@ export default class SmsRouter {
     async verifySms (ctx, next) {
         const { phone, code } = ctx.request.body
         try {
-            if (phone == "18312340000") {
+            if (phone == "17621490000") {
 
             } else {
                 await verifySms(phone, code)
