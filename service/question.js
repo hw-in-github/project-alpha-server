@@ -35,7 +35,7 @@ export const getQuestionsBySubject = async (subject) => {
         tikuId: 1,
     }
 
-    const questions = await Question.find(query).sort(sort).select('tikuId -_id').limit(110)
+    const questions = await Question.find(query).sort(sort).select('tikuId -_id')
 
     return questions
 }
