@@ -6,7 +6,8 @@ import {
     getQuestionsById,
     getQuestionsByIds,
     getQuestionsBySubject,
-    getQuestionsByChapterId
+    getQuestionsByChapterId,
+    getQuestionIdsExam
 } from '../service/question'
 
 @Controller('/question')
@@ -42,6 +43,7 @@ export default class QuestionRouter {
             success: true
         }
     }
+
     @Get('chapter')
     async questionsQueryByChapter (ctx, next) {
         const chapterId = ctx.query.chapterId
@@ -53,4 +55,14 @@ export default class QuestionRouter {
         }
     }
 
+    @Get('exam')
+    async questionsExam (ctx, next) {
+        const subject = ctx.query.subject
+
+        const questions = await getQuestionIdsExam(subject)
+        ctx.body = {
+            data: questions.map(question => question.tikuId),
+            success: true
+        }
+    }
 }

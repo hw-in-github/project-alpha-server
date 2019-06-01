@@ -17,3 +17,19 @@ export const getUsers = async (channel) => {
 
     return users
 }
+
+export const findUserByPhone = async (phone) => {
+    const user = await User.findOne({phone})
+    return user
+}
+
+export const addUserByPhone = async (phone) => {
+    const user = new User(
+        {
+            phone,
+            username: phone.substring(0,3) + '****' + phone.substring(7,phone.length)
+        }
+    )
+    await user.save()
+    return user
+}

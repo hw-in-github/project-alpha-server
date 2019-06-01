@@ -1,7 +1,7 @@
 export default {
   db: 'mongodb://localhost/project-demo',
-  port: 8200,
-  base: 'http://xxx.iblack7.com',
+  port: 5050,
+  base: 'https://projectalpha.applinzi.com',
   qiniu: {
     bucket: 'yourbucket',
     video: 'http://yourvideourl.xxx.com/',

@@ -130,7 +130,7 @@ export const getWeek = () => {
         
         let name = i==0? '今日':dayconfig[date.getDay()]
         let d = date.getDate()
-        let value = d > 9 ? d : '0' + d
+        let value = d > 9 ? `${d}` : '0' + d
         let text = getFullDate(date)
         week.push({
             name,

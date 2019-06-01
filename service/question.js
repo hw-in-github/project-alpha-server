@@ -35,7 +35,7 @@ export const getQuestionsBySubject = async (subject) => {
         tikuId: 1,
     }
 
-    const questions = await Question.find(query).sort(sort).select('tikuId -_id').limit(10)
+    const questions = await Question.find(query).sort(sort).select('tikuId -_id').limit(110)
 
     return questions
 }
@@ -51,5 +51,18 @@ export const getQuestionsByChapterId = async (chapterId) => {
 
     const questions = await Question.find(query).sort(sort).select('tikuId -_id')
 
+    return questions
+}
+
+export const getQuestionIdsExam = async (subject) => {
+    let newsubject = Number(subject)
+    let size = newsubject==1?100:50
+    let questions = await Question
+    .aggregate(
+        [ 
+            { $match: {subject: newsubject}},
+            { $sample: { size } } 
+        ]
+    )
     return questions
 }
