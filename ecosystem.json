@@ -15,7 +15,7 @@
     ],
     "deploy": {
         "production": {
-            "user": "projectalpha",
+            "user": "alphaproject",
             "host": ["ssh.sinacloud.com"],
             "port": "60022",
             "ref": "origin/master",

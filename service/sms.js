@@ -5,7 +5,7 @@ export const requestSms = (phone) => {
     return new Promise((resolve, reject)=>{
         AV.Cloud.requestSmsCode({
             mobilePhoneNumber: phone,
-            name: '学车帮',
+            name: 'smartdriver',
             ttl: 10                     // 验证码有效时间为 10 分钟
         }).then(function(){
             //调用成功

@@ -8,7 +8,8 @@ import {
     verifySms
 } from '../service/sms'
 import {
-    findUserByPhone
+    findUserByPhone,
+    addUserByPhone
 } from '../service/user'
 
 @Controller('/sms')
