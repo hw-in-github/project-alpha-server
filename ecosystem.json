@@ -15,9 +15,9 @@
     ],
     "deploy": {
         "production": {
-            "user": "alphaproject",
-            "host": ["ssh.sinacloud.com"],
-            "port": "60022",
+            "user": "ubuntu",
+            "host": ["129.28.172.137"],
+            "port": "22",
             "ref": "origin/master",
             "repo": "https://github.com/hw-in-github/project-alpha-server",
             "path": "/www/project-alpha/production",
